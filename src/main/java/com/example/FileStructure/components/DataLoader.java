@@ -21,13 +21,14 @@ public class DataLoader implements ApplicationRunner {
     public DataLoader(){}
 
     public void run(ApplicationArguments args) {
-        Folder pictures = new Folder("Pictures");
-        folderRepository.save(pictures);
-        Folder music = new Folder("Music");
-        folderRepository.save(music);
         User michael = new User("Michael");
         userRepository.save(michael);
         User marie = new User("Marie");
         userRepository.save(marie);
+        Folder pictures = new Folder("Pictures", marie);
+        folderRepository.save(pictures);
+        Folder music = new Folder("Music", michael);
+        folderRepository.save(music);
+
     }
 }

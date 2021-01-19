@@ -1,6 +1,11 @@
 package com.example.FileStructure.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -13,10 +18,13 @@ public class User {
     @Column(name = "name")
     private String name;
 
-//    List<Folder> folders;
+    @JsonIgnoreProperties({"user"})
+    @OneToMany(mappedBy = "user")
+    private List<Folder> folders;
 
     public User(String name) {
         this.name = name;
+        this.folders = new ArrayList<>();
     }
 
     public User() {}
@@ -36,5 +44,17 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Folder> getFolders() {
+        return folders;
+    }
+
+    public void setFolders(List<Folder> folders) {
+        this.folders = folders;
+    }
+
+    public void addFolder(Folder folder) {
+        this.folders.add(folder);
     }
 }
