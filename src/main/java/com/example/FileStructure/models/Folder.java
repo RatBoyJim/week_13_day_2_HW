@@ -9,24 +9,24 @@ public class Folder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
-//    private List <Folder> folders;
+//    private List <File> files;
 
-    public Folder(String name){
-        this.name = name;
+    public Folder(String title){
+        this.title = title;
     }
 
     public Folder(){}
 
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Long getId() {
