@@ -1,9 +1,9 @@
 package com.example.FileStructure.repositories;
 
-import com.example.FileStructure.models.Folder;
+import com.example.FileStructure.models.File;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FolderRepository extends JpaRepository<Folder, Long> {
+public interface FileRepository extends JpaRepository<File, Long> {
 }
